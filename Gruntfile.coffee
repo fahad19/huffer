@@ -27,15 +27,19 @@ module.exports = (grunt) ->
             dest: 'public/index.html'
           }
           {
-            src: ['themes/' + config.theme + '/img/*']
+            expand: true
+            cwd: 'themes/' + config.theme + '/img/'
+            src: ['**']
             dest: 'public/img/'
           }
           {
-            src: ['themes/' + config.theme + '/fonts/*']
+            expand: true,
+            cwd: 'themes/' + config.theme + '/fonts/'
+            src: ['**']
             dest: 'public/fonts/'
           }
         ]
-      test: 
+      test:
         files: [
           {
             src: ['tests/layouts/index.html']
@@ -234,7 +238,7 @@ module.exports = (grunt) ->
     done = @async()
     url = 'http://localhost:' + config.server.port + '/test.html'
     cmd = __dirname + '/node_modules/.bin/mocha-phantomjs ' + url
-    
+
     console.log 'Running command: ' + cmd
     exec cmd, (error, stdout, stderr) =>
       if error then throw error
