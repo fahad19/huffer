@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Huffer by fahad19</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Huffer</h1>
+        <p>Rapidly develop Ember.js applications with Grunt</p>
+
+        <p class="view"><a href="https://github.com/fahad19/huffer">View the Project on GitHub <small>fahad19/huffer</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/fahad19/huffer/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/fahad19/huffer/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/fahad19/huffer">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Huffer is a setup utilizing <a href="http://gruntjs.com/">Grunt</a> for rapidly developing <a href="http://emberjs.com/">Ember.js</a> applications.</p>
+
+<p>It makes your objects available as CommonJS across the application, comes with a build system and also (headless) testing.</p>
+
+<h2>Requirements</h2>
+
+<p>Node.js v0.8 or higher, with npm.</p>
+
+<p>You are also expected to have these modules installed globally:</p>
+
+<pre><code>$ npm install -g grunt-cli bower coffee-script
+</code></pre>
+
+<h2>Installation</h2>
+
+<pre><code>$ git clone git://github.com/fahad19/huffer.git
+$ cd huffer
+$ npm install .
+$ bower install .
+$ grunt
+</code></pre>
+
+<h2>Usage</h2>
+
+<pre><code>$ grunt build       # builds your files under /public directory
+$ grunt server      # builds and starts a web server
+$ grunt watch       # builds files under /public as you make changes
+$ grunt live        # builds and starts a server, opens in your browser with live refreshing
+$ grunt test        # builds the application with tests
+$ grunt test-server # builds tests and starts a server
+$ grunt test-live   # builds and starts live test server, and opens in your browser with live refreshing
+$ grunt test-run    # builds and runs the tests in PhantomJS
+$ grunt clear       # deletes all build files
+</code></pre>
+
+<h2>Application structure</h2>
+
+<p>By default, Huffer comes with a few ready-to-use Ember.js objects that should start your application just fine without requiring you to have any knowledge for the framework. But you are advised to <a href="http://emberjs.com/guides/">read the official documentation</a> if you wish to go any further.</p>
+
+<p>Huffer has all its objects available as CommonJS as they are stitched together, and can be <code>require()</code>d from anywhere.</p>
+
+<p>For example, the file at <code>lib/my_custom_lib.coffee</code> (or .js) can be required in your application by doing:</p>
+
+<pre><code>var myCustomLib = require('lib/my_custom_lib');
+</code></pre>
+
+<p>All your application code is expected to go under <code>/app</code> directory.</p>
+
+<ul>
+<li>app/
+
+<ul>
+<li>config/
+
+<ul>
+<li>bootstrap.coffee</li>
+<li>routes.coffee</li>
+</ul>
+</li>
+<li>controllers/</li>
+<li>helpers/</li>
+<li>lib/</li>
+<li>routes/</li>
+<li>templates</li>
+</ul>
+</li>
+</ul><h3>config</h3>
+
+<p><code>config</code> directory has your application bootstrap and defined routes. The bootstrap file is the entry point of your application and everything starts here.</p>
+
+<h3>controllers</h3>
+
+<p>It is always best to refer to original Ember.js documentation to learn about its objects. But in short, controller properties are made available to your templates that you can use later.</p>
+
+<h3>helpers</h3>
+
+<p>Helpers are <a href="http://handlebarsjs.com/">Handlebars</a> helpers that you can use in your templates. They are not objects that you can <code>require()</code> yourself, but rather just defined.</p>
+
+<h3>lib</h3>
+
+<p>This is where custom libraries go. Huffer comes with its own <code>Loader</code> class that makes sure that all you objects are assigned to Ember.js app at <code>window.App</code> automatically.</p>
+
+<h3>routes</h3>
+
+<p>All your Ember.js route objects go here.</p>
+
+<h3>templates</h3>
+
+<p>All your handlebars templates go here, and they should have <code>.handlebars</code> extension.</p>
+
+<p>The <code>Loader</code> class of Huffer makes sure that all the templates are available in <code>window.Ember.TEMPLATES</code>.</p>
+
+<h2>Conventions</h2>
+
+<p>For ease of development, it is expected to follow some naming conventions.</p>
+
+<p>Examples:</p>
+
+<ul>
+<li>Controller file should be at <code>/app/controllers/posts_controller.js</code> for <code>win.App.PostsController</code>.</li>
+<li>Route file should be at <code>/app/routes/posts_route.js</code> for <code>window.App.PostsRoute</code>
+</li>
+<li>Template file should be at <code>/app/templates/pages/about.handlebars</code> for <code>window.Ember.TEMPLATES['pages/about']</code>
+</li>
+</ul><p>Following these naming convention then makes it possible for Huffer's Loader to be able to go through the available modules and assign them to <code>window.App</code> during bootstrapping.</p>
+
+<h2>Themes</h2>
+
+<p>Huffer comes with its own <code>default</code> theme, which you can find at <code>/themes/default</code>. It uses <a href="twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+
+<p>At the moment, Huffer expects your CSS to be written in LESS only, mainly to support Twitter Bootstrap.</p>
+
+<p>It expects your theme to have a minimum structure like this:</p>
+
+<ul>
+<li>themes/your_theme_name/
+
+<ul>
+<li>css/
+
+<ul>
+<li>theme.less</li>
+</ul>
+</li>
+<li>layouts/
+
+<ul>
+<li>index.html</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><p>It is always best to copy the default theme and then modify it if you are developing your own first theme.</p>
+
+<h2>Vendors</h2>
+
+<p>Huffer uses <a href="http://bower.io/">Bower</a> for installing all external libraries like jQuery and Ember.js. They are all set in <code>bower.json</code> file, and downloaded to <code>/public/vendors</code> directory.</p>
+
+<p>If you wish to add more, modify the JSON file, and do:</p>
+
+<pre><code>$ bower install .
+</code></pre>
+
+<h2>Configuration</h2>
+
+<p>There are some basic configuration values that you can set for your application, which you can do in <code>config.js</code> file.</p>
+
+<h2>Testing</h2>
+
+<p>Huffer uses <a href="http://visionmedia.github.io/mocha/">Mocha</a> in combnation with <a href="https://github.com/LearnBoost/expect.js/">expect.js</a> for testing.</p>
+
+<p>If you wish to perform headless testing, you are required to have <a href="http://phantomjs.org/">PhantomJS</a> available globally. To install, do:</p>
+
+<pre><code>$ brew install phantomjs
+</code></pre>
+
+<p>Now you can run your tests from the Terminal:</p>
+
+<pre><code>$ grunt test-run
+</code></pre>
+
+<h2>License</h2>
+
+<p>It is released under the MIT License.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/fahad19">fahad19</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
