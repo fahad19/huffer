@@ -17,7 +17,7 @@ You are also expected to have these modules installed globally:
     $ git clone git://github.com/fahad19/huffer.git
     $ cd huffer
     $ npm install .
-    $ bower install .
+    $ bower install
     $ grunt
 
 ## Usage
