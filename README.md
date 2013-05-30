@@ -114,7 +114,7 @@ Huffer uses [Bower](http://bower.io/) for installing all external libraries like
 
 If you wish to add more, modify the JSON file, and do:
 
-    $ bower install .
+    $ bower install
 
 ## Configuration
 
