@@ -18,7 +18,7 @@
     "grunt-regarde": "~0.1.1",
     "grunt-contrib-clean": "~0.4.0",
     "grunt-open": "~0.2.0",
-    "grunt-ember-templates": "~0.4.4",
+    "grunt-ember-templates": "~0.4.7",
     "grunt-stitch-extra": "~0.4.3",
     "mocha-phantomjs": "~2.0.1"
   }
