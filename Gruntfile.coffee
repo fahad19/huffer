@@ -85,7 +85,7 @@ module.exports = (grunt) ->
           compress: config.compress
         files:
           'public/css/app.css': 'themes/' + config.theme + '/css/theme.less'
-    ember_templates:
+    emberTemplates:
       app:
         options:
           templateName: (sourceFile) ->
@@ -190,7 +190,7 @@ module.exports = (grunt) ->
     'clean:server'
     'jshint:app'
     'copy:theme'
-    'ember_templates:app'
+    'emberTemplates:app'
     'stitch_extra:app'
     'concat:app'
     'less:theme'
