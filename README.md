@@ -4,6 +4,8 @@ Huffer is a setup utilizing [Grunt](http://gruntjs.com/) for rapidly developing 
 
 It makes your objects available as CommonJS across the application, comes with a build system and also (headless) testing.
 
+[![Build Status](https://secure.travis-ci.org/fahad19/huffer.png)](http://travis-ci.org/fahad19/huffer)
+
 ## Requirements
 
 Node.js v0.8 or higher, with npm.
