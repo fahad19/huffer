@@ -6,4 +6,7 @@ notifications:
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-script: "npm install -g grunt-cli bower && bower install && grunt test-run"
+before_script:
+  - "npm install -g grunt-cli bower"
+  - "bower install"
+script: "grunt test-run"
