@@ -2,11 +2,11 @@
   "name": "my-huffer-app",
   "version": "0.0.1",
   "dependencies": {
-    "mocha": "~1.9.0",
-    "jquery": "~1.9.1",
-    "expect": "~0.2.0",
-    "ember": "1.0.0-rc.4",
-    "handlebars": "1.0.0-rc.4",
-    "bootstrap": "~2.3.1"
+    "mocha": "1.9.x",
+    "jquery": "1.9.x",
+    "expect": "0.2.x",
+    "ember": "1.0.x",
+    "handlebars": "1.0.x",
+    "bootstrap": "2.3.x"
   }
 }
