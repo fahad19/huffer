@@ -124,7 +124,7 @@ There are some basic configuration values that you can set for your application,
 
 ## Testing
 
-Huffer uses [Mocha](http://visionmedia.github.io/mocha/) in combnation with [expect.js](https://github.com/LearnBoost/expect.js/) for testing.
+Huffer uses [Mocha](http://mochajs.org/) in combnation with [expect.js](https://github.com/LearnBoost/expect.js/) for testing.
 
 If you wish to perform headless testing, you are required to have [PhantomJS](http://phantomjs.org/) available globally. To install, do:
 
